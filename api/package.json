@@ -1,0 +1,9 @@
+{
+  "name": "forum-app-api",
+  "version": "1.0.0",
+  "description": "API functions for forum app",
+  "dependencies": {
+    "@upstash/redis": "^1.25.0",
+    "nanoid": "^3.3.7"
+  }
+} 
