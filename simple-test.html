@@ -12,6 +12,26 @@
             const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = '<h2>Testing APIs...</h2>';
             
+            // Test status endpoint (most reliable)
+            try {
+                console.log('Testing /api/status...');
+                const statusResponse = await fetch('/api/status');
+                console.log('Status Status:', statusResponse.status);
+                console.log('Status URL:', statusResponse.url);
+                
+                const statusText = await statusResponse.text();
+                console.log('Status Response:', statusText);
+                
+                resultDiv.innerHTML += `
+                    <h3>Status API - Status: ${statusResponse.status}</h3>
+                    <h3>URL: ${statusResponse.url}</h3>
+                    <pre>${statusText}</pre>
+                `;
+            } catch (error) {
+                console.error('Status Error:', error);
+                resultDiv.innerHTML += `<h3>Status Error: ${error.message}</h3>`;
+            }
+            
             // Test hello endpoint (minimal)
             try {
                 console.log('Testing /api/hello...');

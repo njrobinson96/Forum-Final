@@ -225,7 +225,7 @@ async function cleanupConnection(connectionId, userId) {
 }
 
 // Utility function to broadcast to specific user
-export async function broadcastToUser(userId, event) {
+async function broadcastToUser(userId, event) {
     try {
         const connections = await redis.smembers('sse:connections');
         
