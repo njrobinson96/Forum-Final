@@ -4,7 +4,6 @@
   "description": "Real-time forum discussion app with advanced features - Static site with serverless API",
   "scripts": {
     "dev": "vercel dev",
-    "build": "echo 'Static site - no build required'",
     "deploy": "vercel --prod",
     "test": "echo 'No tests specified'",
     "lint": "echo 'No linter configured'"
