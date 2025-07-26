@@ -12,6 +12,26 @@
             const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = '<h2>Testing APIs...</h2>';
             
+            // Test check endpoint (minimal, no dependencies)
+            try {
+                console.log('Testing /api/check...');
+                const checkResponse = await fetch('/api/check');
+                console.log('Check Status:', checkResponse.status);
+                console.log('Check URL:', checkResponse.url);
+                
+                const checkText = await checkResponse.text();
+                console.log('Check Response:', checkText);
+                
+                resultDiv.innerHTML += `
+                    <h3>Check API - Status: ${checkResponse.status}</h3>
+                    <h3>URL: ${checkResponse.url}</h3>
+                    <pre>${checkText}</pre>
+                `;
+            } catch (error) {
+                console.error('Check Error:', error);
+                resultDiv.innerHTML += `<h3>Check Error: ${error.message}</h3>`;
+            }
+            
             // Test status endpoint (most reliable)
             try {
                 console.log('Testing /api/status...');

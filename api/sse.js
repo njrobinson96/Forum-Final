@@ -1,6 +1,7 @@
 // api/sse.js - Upgraded v2.0
 const { Redis } = require('@upstash/redis');
 const redis = Redis.fromEnv();
+const { nanoid } = require('nanoid');
 
 module.exports = async function handler(req, res) {
     const { userId } = req.query;
